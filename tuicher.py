@@ -6,7 +6,7 @@ import config
 # BOT ATRIBUTES
 PING_RATE = 0.5         
 CURRENCY = 'BTCBUSD'
-CYCLE_ITERS = 120
+CYCLE_ITERS = 12
 
 # Variables
 val = 0
@@ -30,7 +30,7 @@ def printAllData():
 
 
 #info = client.get_symbol_info('BNBBTC')
-file = open("data.csv","a")
+file = open("data/data.csv","a")
 i = 0
 while i < CYCLE_ITERS:
     value = getData(CURRENCY)
