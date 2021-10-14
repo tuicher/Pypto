@@ -6,7 +6,7 @@ import config
 # BOT ATRIBUTES
 PING_RATE = 0.5         
 CURRENCY = 'BTCBUSD'
-CYCLE_ITERS = 999999    #1x10^6 iteractions * 10 segs = 115 Days
+CYCLE_ITERS = 120
 
 # Variables
 val = 0
@@ -30,7 +30,7 @@ def printAllData():
 
 
 #info = client.get_symbol_info('BNBBTC')
-
+file = open("data.csv","a")
 i = 0
 while i < CYCLE_ITERS:
     value = getData(CURRENCY)
@@ -43,9 +43,10 @@ while i < CYCLE_ITERS:
     else:
         k = '+'
 
-    print(i,'\t', time.ctime(), value['symbol'],': ', value['price'], k, abs(last_val - val))
+    print(i, CYCLE_ITERS,'\t', time.ctime(), value['symbol'],': ', value['price'], k, abs(last_val - val))
+    file.write(str(i) + ',' + str(time.ctime()) +','+value['symbol']+','+ value['price']+','+str(k)+','+str(abs(last_val - val))+'\n')
     i+=1
     time.sleep(PING_RATE)
 
-
+file.close
 #print(prices)
