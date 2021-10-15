@@ -9,5 +9,6 @@
  
  ## 1St Phase
  The very first program will be focused on be capable to make decitions based on some prerecorded secuence of data. This data whould be catched at the same resolution.
+ The actual experimentation data says that its recomendable to use a 2 request/seg resolution. This is caused because although we can process the data rapidly, this data flow depens on the offers on the Binance Trademarket which is on 'human scale'
 
  
