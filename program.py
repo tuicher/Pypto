@@ -1,7 +1,7 @@
 import process_Data
 
 
-route = 'data/20min_Data/14-11-21_BTCBUSD.csv'
+route = 'data/0.5-2400_Data/data_sniff_3_BTCBUSD.csv'
 
 a =  process_Data.getMean(route)
 

@@ -4,9 +4,9 @@ import  time
 import config
 
 # BOT ATRIBUTES
-PING_RATE = 1        
+PING_RATE = 0.5        
 CURRENCY = 'BTCBUSD'
-CYCLE_ITERS = 1200
+CYCLE_ITERS = 2400
 
 # Variables
 val = 0
