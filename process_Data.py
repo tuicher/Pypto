@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from random import seed
 from random import randint
 
-data = ['data/0.5-2400_Data/data_sniff_1_BTCBUSD.csv','data/0.5-2400_Data/data_sniff_2_BTCBUSD.csv','data/0.5-2400_Data/data_sniff_3_BTCBUSD.csv']
+data = ['data/0.5-2400_Data/data_sniff_1_BTCBUSD.csv','data/0.5-2400_Data/data_sniff_2_BTCBUSD.csv','data/0.5-2400_Data/data_sniff_3_BTCBUSD.csv','data/0.5-2400_Data/data_sniff_4_BTCBUSD.csv' ,'data/0.5-2400_Data/data_sniff_5_BTCBUSD.csv']
 
 def getMean(route):
     with open(route) as file:
@@ -50,7 +50,7 @@ def max(list):
 size_of_Trace = 30
 size_of_Slice = 2400
 
-def generate_Trace():
+def generate_Trace(file_Route):
     it = []
     values = []
     values_aux = []
@@ -61,7 +61,8 @@ def generate_Trace():
     #30 iters == 6 hours
     for i in range(size_of_Trace):
         seed()
-        pick = randint(0,2)
+        pick = randint(0,4)
+        print('Pick->', pick)
         with open(data[pick]) as file:
             reader = csv.reader(file, delimiter=',')
             values_aux = []
@@ -82,11 +83,15 @@ def generate_Trace():
             else:
                 values.extend(values_aux)
             
-    plt.plot(it,values)
+    file = open(file_Route,"a")
+    for i in it:
+        file.write(str(i) + ',' + str(values[i]) + '\n')
+    file.close()
+    plt.plot(it,values, lw=1)
     mi = min(values)
     ma = max(values)
     for i in range(size_of_Trace + 1):
         plt.plot([size_of_Slice * i, size_of_Slice * i],[mi, ma], 'k-', lw=0.25)
     plt.show()
 
-generate_Trace()
+generate_Trace('traces/trace1.csv')
