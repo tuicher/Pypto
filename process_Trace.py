@@ -1,18 +1,26 @@
 import csv
 import matplotlib.pyplot as plt
 
-def plot(route):
-    with open(route) as file:
-        it = []
-        values  = []
-        reader = csv.reader(file, delimiter=',')
-        for row in reader:
-            it.append(int(row[0]))
-            values.append(float(row[1]))
+class process_Trace():
+    def __init__(self, r):
+        self.route = r
+        with open(self.route) as file:
+            self.it = []
+            self.values  = []
+            reader = csv.reader(file, delimiter=',')
+            for row in reader:
+                self.it.append(int(row[0]))
+                self.values.append(float(row[1]))
 
-        plt.plot(it, values, lw=1)
-        plt.show()
+    def plot(self):
+            plt.plot(self.it, self.values, lw=1)
+            plt.show()
+
+
 
 #plot('data/training_traces/down_trace.csv')
 #plot('data/training_traces/up_trace.csv')
-plot('traces/DEMO_trace.csv')
+
+z = process_Trace('data/training_traces/up_trace.csv')
+z.plot()
+
