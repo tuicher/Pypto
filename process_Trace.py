@@ -16,6 +16,10 @@ class process_Trace():
             plt.plot(self.it, self.values, lw=1)
             plt.show()
 
+    def inv(self):
+         with open(self.route) as file:
+
+
 
 
 #plot('data/training_traces/down_trace.csv')

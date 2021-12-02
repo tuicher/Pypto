@@ -1,10 +1,8 @@
-import process_Data
+import Pypto
 
 
-route = 'data/0.5-2400_Data/data_sniff_4_BTCBUSD.csv'
 
-a =  process_Data.getMean(route)
-
-process_Data.plot(route)
-
-print(a)
+#route = 'data/0.5-2400_Data/data_sniff_4_BTCBUSD.csv'
+#a =  process_Data.getMean(route)
+#process_Data.plot(route)
+#print(a)
