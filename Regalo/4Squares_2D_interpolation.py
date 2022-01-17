@@ -107,4 +107,3 @@ for jdx in range(8):
     botom_l_final = final[3]
 
     gen_animation(50,2, jdx)
-
